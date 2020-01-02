@@ -73,7 +73,7 @@ Figure 1 below shows an example of what your application will look like.
 
 This application does 2 things:
 
-1. It makes connection to the GitHub API and retrieves all the repositories found in the [HackYourFuture account](https://www.github.com/hackyourfuture).
+1. It makes connection to the GitHub API and retrieves all the repositories found in the [HackYourFuture account](https://www.github.com/SocialHackersCodeSchool).
 2. It displays those repositories in an alphabetically-oreded list. When a user clicks on any of the repository names it will show more details about it.
 
 ### Getting an overview

@@ -1,5 +1,3 @@
-> Please help us improve and share your feedback! If you find better tutorials
-> or links, please share them by [opening a pull request](https://github.com/HackYourFuture/JavaScript3/pulls).
 
 # Module #4 - JavaScript 3: Object-Oriented Programming and working with APIs (Frontend)
 
@@ -81,8 +79,10 @@ With this out of the way we can get started!
 
 Did you finish the module? High five!
 
-If you feel ready for the next challenge, click [here](https://www.github.com/HackYourFuture/Node.js) to go to Node.js!
+If you feel ready for the next challenge, click [here](https://www.github.com/SocialHackersCodeSchool/Node.js) to go to Node.js!
 
-_The HackYourFuture curriculum is subject to CC BY copyright. This means you can freely use our materials, but just make sure to give us credit for it :)_
+## Credit:
+This curriculum is developed by HackYourFuture, modifications, and changes can be found in this Fork. (edited) 
+
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
