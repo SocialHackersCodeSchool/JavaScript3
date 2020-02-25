@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Time</title>
+    <link rel="stylesheet" href="humor.css">
+  </head>
+  <body>
+     <!-- LEFT COLUMN-->
+     <div class="leftSide">&nbsp</div>
+
+     <!-- CENTER COLUMN-->
+     <div class="centerSide">
+       <h1>XHR and AXIOS</h1>
+     </div>
+
+     <!-- RIGHT COLUMN-->
+     <div class="rightSide">&nbsp</div>
+     
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script>
+      // WITH XHR
+      const getData = () => {
+        const promise = new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://xkcd.now.sh/?comic=latest', true);
+        xhr.send();
+        xhr.addEventListener("readystatechange", processRequest, false);
+
+        function processRequest(e) {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            const dato = JSON.parse(xhr.responseText);
+            resolve(dato); // We could just send dato for all the general data
+          }
+        }
+
+        xhr.onerror = () => {
+          reject("Something ain't going well...");
+        }
+      });
+      return promise;
+    }
+
+      getData()
+        .then(responseData => {
+          console.log(responseData);
+          loadNewElements(responseData.img, "xhr");
+        })
+        .catch(err => {
+          console.log(err);
+        }); 
+      
+      // WITH AXIOS
+      axios
+        .get('https://xkcd.now.sh/?comic=latest')
+        .then(responseText => {
+        console.log(responseText.data);  // We could just send responseText.data for all the general data
+        loadNewElements(responseText.data.img, "axios");
+        })
+        .catch(function(error) {
+        console.log("Something went wrong. Error '" + error + "' detected.");
+        });
+ 
+
+        function loadNewElements(srcData, technique){
+          const div = document.querySelector(".centerSide");
+          const parr1 = document.createElement("p");
+          const img = document.createElement("img");
+    
+          if(technique.toLowerCase() === "axios"){
+            parr1.innerHTML = "Image with AXIOS:"
+            img.src = srcData;
+          } else if(technique.toLowerCase() === "xhr") {
+            parr1.innerHTML = "Image with XHR:"
+            img.src = srcData;
+          } else
+            console.log("Error: Technique not accepted...")
+          
+          div.appendChild(parr1);
+          div.appendChild(img);
+      }
+     </script>
+    
+  </body>
+</html>

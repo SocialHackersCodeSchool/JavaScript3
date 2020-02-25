@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Time</title>
+    <link rel="stylesheet" href="dogGallery.css">
+  </head>
+  <body>
+     <!-- LEFT COLUMN-->
+     <div class="leftSide">&nbsp</div>
+
+     <!-- CENTER COLUMN-->
+     <div class="centerSide">
+       <h1>Dog Gallery</h1>
+       <div>
+        <input type="button" id="xhr" value="XHR">
+        <input type="button" id="axios" value="AXIOS">
+       </div>
+       <ul id="dogGallery"></ul>
+     </div>
+
+     <!-- RIGHT COLUMN-->
+     <div class="rightSide">&nbsp</div>
+     
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script>
+    
+    const xhrButton = document.querySelector("#xhr");
+    const axiosButton = document.querySelector("#axios");
+
+    xhrButton.addEventListener("click", getXHRData);
+    axiosButton.addEventListener("click", getAxiosData)
+
+    // WITH XHR
+    const getData = () => {
+        const promise = new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://dog.ceo/api/breeds/image/random', true);
+        xhr.send();
+        xhr.addEventListener("readystatechange", processRequest, false);
+
+        function processRequest(e) {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            const dato = JSON.parse(xhr.responseText);
+            resolve(dato); // We could just send dato for all the general data
+          }
+        }
+
+        xhr.onerror = () => {
+          reject("Something ain't going well...");
+        }
+      });
+      return promise;
+    }
+
+    function getXHRData(){
+      getData()
+        .then(responseData => {
+          console.log(responseData);
+          loadNewElements(responseData.message, "xhr");
+        })
+        .catch(err => {
+          console.log(err);
+        }); 
+    }
+      
+      // WITH AXIOS
+    function getAxiosData(){
+      axios
+        .get('https://dog.ceo/api/breeds/image/random')
+        .then(responseText => {
+        console.log(responseText.data);  // We could just send responseText.data for all the general data
+        loadNewElements(responseText.data.message, "axios");
+        })
+        .catch(function(error) {
+        console.log("Something went wrong. Error '" + error + "' detected.");
+        });
+    }
+
+        function loadNewElements(srcData, technique){
+          const div = document.querySelector(".centerSide");
+          const listItem = document.createElement("li");
+          const parr = document.createElement("p");
+          const img = document.createElement("img");
+    
+          if(technique.toLowerCase() === "axios"){
+            parr.innerHTML = "Image retrieved with Axios:";
+            img.src = srcData;
+          } else if(technique.toLowerCase() === "xhr") {
+            parr.innerHTML = "Image retrieved with XHR:";
+            img.src = srcData;
+          } else
+            console.log("Error: Technique not accepted...")
+          
+          listItem.appendChild(parr);
+          listItem.appendChild(img);
+          div.appendChild(listItem);
+      }
+     </script>
+
+  </body>
+</html>
