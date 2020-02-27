@@ -1,0 +1,159 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: underline;
+  color: blue;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+a:visited {
+  color: purple;
+}
+
+img{
+  width: 60px;
+  margin-right: 2vw;;
+}
+
+li {
+  margin: 3px;
+  padding: 3vh;
+  border-style: hidden;
+  border-color: rgb(194, 191, 191);
+  border-width: 2px;
+  box-shadow: 1px 1px 5px #7e7b7b;
+  list-style-type: none;
+}
+
+li span {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  white-space: pre-wrap;
+}
+
+/*JS3-2 START Modified Text. Attributes for Select element */
+select {
+  margin-left: 15px;
+  height: 25px;
+  width: 200px;
+}
+/*JS3-2 END Modified Text. Helps to place the select element after the Title ina row. */
+
+section{
+  width: 50%;
+}
+
+.alert-error {
+  margin-top: 4px;
+  padding: 3vh;
+  background-color: rgb(248, 215, 218);
+  color: rgb(92, 60, 60);
+}
+
+/*JS3-2 START Modified Text. Div that contains two sections */
+.containers{
+  display: flex;  
+  flex-direction: row; 
+}
+/*JS3-2 END Modified Text. Div that contains two sections */
+
+.contributorData {
+  display: flex;  
+  flex-direction: row; 
+  align-items: center;
+}
+
+.contributorData a{
+  text-decoration: none;
+}
+
+.mainTitle{
+  display: flex;   /*JS3-2 Modified Text. Helps to place the select element after the Title in a row. */
+  flex-direction: row; /*JS3-2 Modified Text. Helps to place the select element after the Title in a row. */
+  justify-content: flex-start; /*JS3-2 Modified Text. Helps to place the select element after the Title in a row. */
+  align-items: baseline; /*JS3-2 Modified Text. Helps to place the select element after the Title ina row. */
+  background-color: rgb(63, 81, 181);
+  color: white;
+  font-family: sans-serif;
+  font-size: 50%;
+  padding: 3vh;
+}
+
+.mainTitle span {
+  font-weight: normal;
+}
+
+.numberContributions {
+  margin-left: auto;
+  padding: 4px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 5px;
+  font-size: 12px;;
+  background-color: rgb(124, 111, 111);
+  color: white;
+}
+
+/* JS3-2 Line that separates the block style of the li span of the containers from the contributors. */
+.repo-container li span {
+  display: block;
+}
+
+#contributions {
+  margin: 3px;
+  padding: 3vh;
+  border-style: hidden;
+  border-color: rgb(194, 191, 191);
+  border-width: 2px;
+  border-bottom: none;
+  box-shadow: 1px 1px 5px #7e7b7b;
+  list-style-type: none;
+  color: rgb(165, 159, 159);
+}
+
+/* RESPONSIVENESS*/
+/* Mobile phones */
+@media screen and (max-width: 450px) {
+  section{
+    width: 100%;
+  }
+
+  .containers{
+    display: flex;  
+    flex-direction: column; 
+  }
+}
+
+/* RESPONSIVENESS*/
+/* TABLETS */
+@media screen and (min-width: 451px) and (max-width: 800px) {
+  section{
+    width: 50%;
+  }
+
+  .containers{
+    display: flex;  
+    flex-direction: row; 
+  }
+}
+
+/* RESPONSIVENESS*/
+/* LARGER SCREENS */
+@media screen and (min-width: 801px) {
+  section{
+    width: 50%;
+  }
+
+  .containers{
+    display: flex;  
+    flex-direction: row; 
+  }
+}
